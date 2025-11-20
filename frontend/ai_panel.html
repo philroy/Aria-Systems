@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Panel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>AI Code Terminal</h1>
+<textarea id="code-editor" placeholder="Type Python code here..."></textarea>
+<button onclick="runCode()">Run Code</button>
+<pre id="output"></pre>
+<script>
+async function runCode() {
+    const code = document.getElementById("code-editor").value;
+    const response = await fetch('/run_code', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code })
+    });
+    const data = await response.json();
+    document.getElementById("output").textContent = data.output;
+}
+</script>
+</body>
+</html>

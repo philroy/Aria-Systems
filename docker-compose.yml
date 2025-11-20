@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  aria:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend/memory.db:/aria/backend/memory.db
+      - ./Aria-Systems:/aria/backend/repo
+    restart: unless-stopped

@@ -1,0 +1,7 @@
+flask
+flask-socketio
+torch
+transformers
+requests
+gitpython
+sqlite3
